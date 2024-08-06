@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    //Variables 
+    int num1,num2;
+    char opt;
+    int ans;
+    
+    printf("Enter First Number:\n");
+    scanf("%d", &num1);
+    
+    // Clear input buffer before taking character input
+    while ((getchar()) != '\n'); // This clears the buffer
+    
+    printf("Select Your Operator(+,-,*,/):\n");
+    scanf("%c", &opt);
+    
+    printf("Enter Second Number:\n");
+    scanf("%d", &num2);
+    
+    
+    
+    if(opt=='+'){
+    ans=num1+num2;
+    printf("Answer is:%d\n",ans);
+        
+        
+    }
+    
+    else if(opt=='-'){
+         ans=num1-num2;
+    printf("Answer is:%d\n",ans);
+    }
+    
+     else if(opt=='*'){
+         ans=num1*num2;
+    printf("Answer is:%d\n",ans);
+    }
+     else if(opt=='/'){
+         ans=num1/num2;
+    printf("Answer is:%d\n",ans);
+    }
+    
+    else{
+        printf("Wrong Operator");
+    }
+return 0;
+}
