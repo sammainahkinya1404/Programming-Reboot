@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Network Forensics</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Network Forensics Logs</h1>
+        <table id="log-table" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script>
+        fetch('/logs')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('#log-table tbody');
+                data.forEach(log => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${log.id}</td><td>${log.type}</td><td>${log.message}</td>`;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>
